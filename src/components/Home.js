@@ -24,7 +24,7 @@ function Home() {
         {/* <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" /> */}
         <img src="https://i.redd.it/s2wq8lpw1iz61.png" />
         <div className="home_inputContainer">
-          <Search />
+          <Search flow="home" />
         </div>
       </div>
     </div>

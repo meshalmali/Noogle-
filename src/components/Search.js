@@ -6,19 +6,19 @@ import MicIcon from "@mui/icons-material/Mic";
 import { Button } from "@mui/material";
 import { useDataLayerValue } from "../context/DataLayer";
 
-function Search({ hideButtons = false }) {
+function Search({ hideButtons = false, flow }) {
   const [inputValue, setInputValue] = useState("");
   let navigate = useNavigate();
-  const [{ term }, dispatch] = useDataLayerValue();
+  const [, dispatch] = useDataLayerValue();
 
   const handleKeyPress = (e) => {
     // console.log("You hit enter");
     if (e.key === "Enter") {
-      search("home");
+      search();
     }
   };
 
-  const search = (flow) => {
+  const search = () => {
     // console.log("You hit search button and input is", input);
 
     dispatch({
@@ -32,7 +32,7 @@ function Search({ hideButtons = false }) {
   };
 
   return (
-    <form className="search">
+    <div className="search">
       <div className="search_input">
         <SearchIcon className="search_inputIcon" />
         <input
@@ -44,20 +44,13 @@ function Search({ hideButtons = false }) {
       </div>
       {!hideButtons ? (
         <div className="search_buttons">
-          <Button variant="outlined" onClick={() => search("home")}>
+          <Button variant="outlined" onClick={search}>
             Noogle Search
           </Button>
           <Button variant="outlined">I'm Feeling Lucky</Button>
         </div>
-      ) : (
-        <div className="search_buttonsHide">
-          <Button variant="outlined" onClick={() => search("home")}>
-            Noogle Search
-          </Button>
-          <Button variant="outlined">I'm Feeling Lucky</Button>
-        </div>
-      )}
-    </form>
+      ) : null}
+    </div>
   );
 }
 
