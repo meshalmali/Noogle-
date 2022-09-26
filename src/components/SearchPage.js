@@ -69,22 +69,24 @@ function SearchPage() {
         </div>
       </div>
       {true && (
-        <div className="searchPage_results">
-          <p className="searchPage_resultsCount">
-            About {data?.searchInformation.formattedTotalResults} results (
-            {data?.searchInformation.searchTime} seconds)
-          </p>
-          {data?.items?.map((item) => (
-            <div key={item.title} className="result">
-              <a className="result_link" href={item.link}>
-                {item.link}
-              </a>
-              <a className="result_title" href={item.link}>
-                <h2>{item.title}</h2>
-              </a>
-              <p className="result_snippet">{item.snippet}</p>
-            </div>
-          ))}
+        <div className="searchPage_container">
+          <div className="searchPage_results">
+            <p className="searchPage_resultsCount">
+              About {data?.searchInformation.formattedTotalResults} results (
+              {data?.searchInformation.searchTime} seconds)
+            </p>
+            {data?.items?.map((item) => (
+              <div key={item.title} className="result">
+                <a className="result_link" href={item.link}>
+                  {item.link}
+                </a>
+                <a className="result_title" href={item.link}>
+                  <h2>{item.title}</h2>
+                </a>
+                <p className="result_snippet">{item.snippet}</p>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>
