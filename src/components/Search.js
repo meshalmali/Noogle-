@@ -32,10 +32,11 @@ function Search({ hideButtons = false, flow }) {
   };
 
   return (
-    <div className="search">
-      <div className="search_input">
+    <div className="flex-col flex items-center justify-center">
+      <div className="items-center border border-gray-200 p-5 rounded-full w-[95%] shadow-md max-w-[35rem] bg-white h-14 flex justify-start">
         <SearchIcon className="search_inputIcon" />
         <input
+          className="focus:outline-none p-3 bg-white mr-auto"
           onKeyDown={handleKeyPress} // For when you hit enter
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
